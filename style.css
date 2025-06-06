@@ -12,7 +12,7 @@ body{margin:0;font-family: "Simonetta",serif;}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}
 summary{display:list-item}
 
-a{background-color:transparent}
+a{background-color:transparent;color:#d04d65;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
 a:active,a:hover{outline-width:0}
 
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
@@ -28,7 +28,7 @@ sub{bottom:-0.25em}
 sup{top:-0.5em}
 
 figure{margin:1em 40px}
-img{border-style:none}
+img{box-shadow:#806469;border-radius:20px;border:#d04d65 3px solid;padding:10px;margin:10px;}
 
 code,kbd,pre,samp,.katinka-code,.katinka-codespan{font-family:Consolas ,monospace,monospace;font-size:1em}
 
@@ -84,7 +84,7 @@ h1,h3,h4,h5,h6{font-family:"Simonetta",serif;font-weight:400;margin:10px 0}
 
 hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
-.katinka-image{max-width:100%;height:auto}
+.katinka-image{max-width:90%;height:auto}
 img{vertical-align:middle}
 a{color:inherit}
 
@@ -435,7 +435,7 @@ a{color:inherit}
 .katinka-padding-small{padding:4px 8px!important}
 .katinka-padding{padding:8px 16px!important}
 .katinka-padding-large{padding:12px 24px!important}
-
+.katinka-text-blue{padding:30px}
 .katinka-padding-16{padding-top:16px!important;padding-bottom:16px!important}
 .katinka-padding-24{padding-top:24px!important;padding-bottom:24px!important}
 
