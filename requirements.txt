@@ -1,9 +1,0 @@
-
-Flask
-psycopg2-binary
-pandas
-logging
-sqlalchemy
-dotenv
-flask_compress
-flask-compress
