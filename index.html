@@ -93,31 +93,7 @@
 
     <!-- End Left Column -->
     </div>
-<a href="#" id="pdf-download">PDF herunterladen</a>
 
-<script>
-  document.getElementById('pdf-download').addEventListener('click', function (e) {
-    e.preventDefault();
-
-    // Beispiel: PDF-Datei vom Server laden
-    fetch('zeugnisse/cv.pdf') // gleicher Ursprung empfohlen (kein CORS-Problem)
-      .then(response => response.blob())
-      .then(blob => {
-        const url = URL.createObjectURL(blob);
-
-        // Temporäres Download-Element erzeugen
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'cv-katinka.pdf';  // Dateiname, den der Nutzer ändern kann
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        // URL freigeben
-        URL.revokeObjectURL(url);
-      });
-  });
-</script>
     <!-- Right Column -->
     <div class="katinka-twothird">
       <!-- download-->
