@@ -10,14 +10,11 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Parisienne'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Simonetta'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-
-</style>
 </head>
-<body class="katinka-light-grey">
+<body class="katinka-crimson">
 
 <!-- Page Container -->
-<div class="katinka-content katinka-margin-top" style="max-width:1400px;">
+<div class="katinka-content katinka-margin-top" style="max-width:1250px;">
 
   <!-- The Grid -->
   <div class="katinka-row-padding">
@@ -97,14 +94,14 @@
       <!-- download-->
       <div class="katinka-container katinka-card katinka-white katinka-margin-bottom">
         <div class="katinka-container">
-          <a href="zeugnisse/cv.pdf" download="cv-katinka.pdf">       
-            <h5 class="katinka-opacity katinka-center">
+          <a href="zeugnisse/cv.pdf" download="cv-katinka.pdf" onclick=""zeugnisseDownload()>       
+            <h5 class=" katinka-center">
               <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
               Download my CV</b>
             </h5>
           </a>
           <a id="second-link" style="display: none;" href="zeugnisse/zeugnisse.pdf" download=zeugnisse-katinka.txt">
-            <h5 class="katinka-opacity katinka-center">
+            <h5 class=" katinka-center">
               <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
               Download also my credentials</b>
             </h5>
@@ -115,26 +112,32 @@
       <div class="katinka-container katinka-card katinka-white katinka-margin-bottom read-more-wrap">
         <h2 class="katinka-text-grey katinka-padding-16"><i class="fa fa-wrench fa-fw katinka-margin-right katinka-xxlarge katinka-text-teal"></i>Work Experience</h2>
         <input type="checkbox" class="read-more-state" id="more-work" /><div class="read-more-wrap">
-        <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>Front End Developer / w3schools.com</b></h5>
-          <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Jan 2015 - <span class="katinka-tag katinka-teal katinka-round">Current</span></h6>
+        <div class="katinka-container time-job">
+          <div class="time">
+            <h6 class="katinka-text-teal">
+              <i class="fa fa-calendar fa-fw katinka-margin-right"></i>Jan 2015 - <span class="katinka-tag katinka-teal katinka-round">Current</span>
+            </h6>
+          </div>
+          <div class="job">
+            <h5 class=""><b>Front End Developer / w3schools.com</b></h5>
+          </div>
           <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
           <hr>
         </div>
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>Web Developer / something.com</b></h5>
+          <h5 class=""><b>Web Developer / something.com</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Mar 2012 - Dec 2014</h6>
           <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
           <hr>
         </div>
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>Graphic Designer / designsomething.com</b></h5>
+          <h5 class=""><b>Graphic Designer / designsomething.com</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Jun 2010 - Mar 2012</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
           <hr class="read-more-target">
         </div>
         <div class="katinka-container read-more-target">
-          <h5 class="katinka-opacity"><b>Babysitter</b></h5>
+          <h5 class=""><b>Babysitter</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Jun 2010 - Mar 2012</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
         </div></div>
@@ -145,25 +148,25 @@
         <h2 class="katinka-text-grey katinka-padding-16"><i class="fa fa-mortar-board fa-fw katinka-margin-right katinka-xxlarge katinka-text-teal"></i>Education</h2>
         <input type="checkbox" class="read-more-state" id="more-education" /><div class="read-more-wrap">
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>W3Schools.com</b></h5>
+          <h5 class=""><b>W3Schools.com</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Forever</h6>
           <p>Web Development! All I need to know in one place</p>
           <hr>
         </div>
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>London Business School</b></h5>
+          <h5 class=""><b>London Business School</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>2013 - 2015</h6>
           <p>Master Degree</p>
           <hr class="read-more-target">
         </div>
         <div class="katinka-container read-more-target">
-          <h5 class="katinka-opacity"><b>School of Coding</b></h5>
+          <h5 class=""><b>School of Coding</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>2010 - 2013</h6>
           <p>Bachelor Degree</p>
           <hr>
         </div>
         <div class="katinka-container read-more-target">
-          <h5 class="katinka-opacity"><b>School of Coding</b></h5>
+          <h5 class=""><b>School of Coding</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>2010 - 2013</h6>
           <p>A-Level</p><br>
         </div></div>
@@ -174,19 +177,19 @@
       <div class="katinka-container katinka-card katinka-white">
         <h2 class="katinka-text-grey katinka-padding-16"><i class="fa fa-bicycle fa-fw katinka-margin-right katinka-xxlarge katinka-text-teal"></i>Hobbies</h2>
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>Finnish</b></h5>
+          <h5 class=""><b>Finnish</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Forever</h6>
           <p>Web Development! All I need to know in one place</p>
           <hr>
         </div>
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>Long Distance Hiking</b></h5>
+          <h5 class=""><b>Long Distance Hiking</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>2013 - 2015</h6>
           <p>Master Degree</p>
           <hr>
         </div>
         <div class="katinka-container">
-          <h5 class="katinka-opacity"><b>Ski Jumping Volunteering</b></h5>
+          <h5 class=""><b>Ski Jumping Volunteering</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>2010 - 2013</h6>
           <p>Bachelor Degree</p><br>
         </div>

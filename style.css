@@ -1,6 +1,26 @@
 /* W3.CSS 5.02 March 31 2025 by Jan Egil and Borge Refsnes 
  changed to katinka
 */
+
+.time-job {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.time {
+  flex: 0 0 150px; /* feste Breite für Datum */
+  margin:-0.01em;
+  white-space: nowrap;
+  order:1;
+}
+.job {
+  flex: 1; /* nimmt den restlichen Platz ein */
+  white-space: nowrap;
+  order:2;
+}
+.time h6, .job h5 {  margin: 0;}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -123,7 +143,7 @@ textarea{overflow:auto}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 
 /* End extract */
-html,body{font-size:15px;line-height:1.5}
+html,body{font-size:15px;line-height:1.5;}
 html{overflow-x:hidden}
 
 h1{font-size:36px}
@@ -181,7 +201,7 @@ a{color:inherit}
 .katinka-ul li{padding:8px 16px;border-bottom:1px solid #ddd}
 .katinka-ul li:last-child{border-bottom:none}
 
-.katinka-tooltip,.katinka-display-container{position:relative}
+.katinka-tooltip,.katinka-display-container{position:relative;text-align:center;}
 .katinka-tooltip .katinka-text{display:none}
 .katinka-tooltip:hover .katinka-text{display:inline-block}
 
@@ -564,19 +584,19 @@ a{color:inherit}
 
 .katinka-yellow,.katinka-hover-yellow:hover{color:#000!important;background-color:#ffeb3b!important}
 
-.katinka-white,.katinka-hover-white:hover{color:#000!important;background-color:#fff!important}
+.katinka-white,.katinka-hover-white:hover{color:#757575!important;background-color:#fff!important}
 
 .katinka-black,.katinka-hover-black:hover{color:#fff!important;background-color:#000!important}
 
 .katinka-grey,.katinka-hover-grey:hover,.katinka-gray,.katinka-hover-gray:hover{color:#000!important;background-color:#9e9e9e!important}
 
-.katinka-light-grey,.katinka-hover-light-grey:hover,.katinka-light-gray,.katinka-hover-light-gray:hover{color:#000!important;background-color:#f1f1f1!important}
+.katinka-light-grey,.katinka-hover-light-grey:hover,.katinka-light-gray,.katinka-hover-light-gray:hover{color:#000!important;background-color: #f1f1f1!important}
 
 .katinka-dark-grey,.katinka-hover-dark-grey:hover,.katinka-dark-gray,.katinka-hover-dark-gray:hover{color:#fff!important;background-color:#616161!important}
 
 .katinka-asphalt,.katinka-hover-asphalt:hover{color:#fff!important;background-color:#343a40!important}
 
-.katinka-crimson,.katinka-hover-crimson:hover{color:#fff!important;background-color:#a20025!important}
+.katinka-crimson,.katinka-hover-crimson:hover{color:#fff!important;background-color:#bb8992!important}
 
 .katinka-cobalt,katinka-hover-cobalt:hover{color:#fff!important;background-color:#0050ef!important}
 
