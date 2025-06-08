@@ -3,6 +3,32 @@ document.ready = function(){
 	document.querySelector('.read-more-state').addEventListener('click', function () {
  		document.querySelectorAll('.read-more-target').forEach(el => { el.classList.toggle('show');});
 	});
+    document.querySelectorAll('.pdf-trigger').forEach(trigger => {
+    trigger.addEventListener('mouseover', () => {
+      const pageId = trigger.id; // z. B. "page-3"
+      const pageNumber = parseInt(pageId.replace('page-', ''), 10);
+
+      document.getElementById('pdf-overlay').classList.remove('pdf-hidden');
+
+      pdfjsLib.getDocument(url).promise.then(pdf => {
+        pdf.getPage(pageNumber).then(page => {
+          const scale = 0.3;
+          const viewport = page.getViewport({ scale });
+
+          const canvas = document.getElementById('pdf-canvas');
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+          };
+          page.render(renderContext);
+        });
+      });
+    });
+  });
 }
 
 // Preload images for the hover effects
@@ -17,9 +43,6 @@ document.ready = function(){
     img.src = folder+name;
   });
 */
-// makes it possible to download the credientials after downloading the cv
-//function zeugnisseDownload() {	document.getElementById('second-link').style.display = 'block';}
-
 
 function startDownload() {
   const link = document.createElement('a');
@@ -35,6 +58,8 @@ function startDownload() {
   }, 500);
 }
 
+  const url = 'zeugnisse/zeugnisse.pdf';
 
-
-
+  function expandPDF() {
+    document.getElementById('pdf-overlay').classList.toggle('fullscreen');
+  }

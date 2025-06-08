@@ -10,6 +10,7 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Parisienne'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Simonetta'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 </head>
 <body class="katinka-crimson">
 
@@ -89,57 +90,42 @@
     <!-- End Left Column -->
     </div>
 
-    <!-- Right Column -->
+    <!-- Right Column --> 
     <div class="katinka-twothird">
       <!-- download-->
       <div class="katinka-container katinka-card katinka-white katinka-margin-bottom">
         <div class="katinka-container">
-          <!--<a id="downloadCV" href="zeugnisse/cv.pdf" download="cv-katinka.pdf" target="_blank" zeugnisseDownload()">       
-              
-            <h5 class=" katinka-center">
+          <a id="downloadCV" href="#" onclick="startDownload()">       
+            <h5 class="katinka-center">
               <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
               Download my CV</b>
             </h5>
           </a>
-          <a id="second-link" style="display: none;" href="zeugnisse/zeugnisse.pdf" target="_blank" download="zeugnisse-katinka.txt">
-            <h5 class=" katinka-center">
+          <a id="second-link" style="display: none;" href="zeugnisse/zeugnisse.pdf" download="zeugnisse-katinka.pdf">
+            <h5 class="katinka-center">
               <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
               Download also my credentials</b>
             </h5>
-          </a>-->
-          <a id="downloadCV" href="#" onclick="startDownload()">       
-  <h5 class="katinka-center">
-    <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
-    Download my CV</b>
-  </h5>
-</a>
-
-<a id="second-link" style="display: none;" href="zeugnisse/zeugnisse.pdf" download="zeugnisse-katinka.pdf">
-  <h5 class="katinka-center">
-    <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
-    Download also my credentials</b>
-  </h5>
-</a>
-
+          </a>
         </div>
       </div>
       <!-- work -->
       <div class="katinka-container katinka-card katinka-white katinka-margin-bottom read-more-wrap">
-        <h2 class="katinka-text-grey katinka-padding-16"><i class="fa fa-wrench fa-fw katinka-margin-right katinka-xxlarge katinka-text-teal"></i>Work Experience</h2>
+        <h2 class="katinka-text-grey katinka-container"><i class="fa fa-wrench fa-fw katinka-margin-right katinka-xxlarge katinka-text-teal"></i>Work Experience</h2>
         <input type="checkbox" class="read-more-state" id="more-work" /><div class="read-more-wrap">
-        <div class="katinka-container time-job">
+        <div class="katinka-container time-job pdf-trigger" id="page-1">
+          <div class="job">
+            <h5 class=""><b>Front End Developer / w3schools.com</b></h5>
+          </div>          
           <div class="time">
             <h6 class="katinka-text-teal">
               <i class="fa fa-calendar fa-fw katinka-margin-right"></i>Jan 2015 - <span class="katinka-tag katinka-teal katinka-round">Current</span>
             </h6>
           </div>
-          <div class="job">
-            <h5 class=""><b>Front End Developer / w3schools.com</b></h5>
-          </div>
-          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
+          <p class="after-time-p">Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr class="after-time-hr">
         </div>
-        <div class="katinka-container">
+        <div class="katinka-container pdf-trigger" id="page-5">
           <h5 class=""><b>Web Developer / something.com</b></h5>
           <h6 class="katinka-text-teal"><i class="fa fa-calendar fa-fw katinka-margin-right"></i>Mar 2012 - Dec 2014</h6>
           <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
@@ -233,6 +219,11 @@
     <span class="sr-only">Link zu meinem LinkedIn Account</span>
   </a>
 </footer>
+<div id="pdf-overlay" class="pdf-hidden" onclick="expandPDF()">
+  <canvas id="pdf-canvas"></canvas>
+</div>
+
+
 
 </body>
 </html>

@@ -1,25 +1,50 @@
 /* W3.CSS 5.02 March 31 2025 by Jan Egil and Borge Refsnes 
  changed to katinka
 */
+#pdf-overlay {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 200px;
+  height: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#pdf-overlay.fullscreen {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.pdf-hidden {
+  display: none;
+}
 
 .time-job {
   display: flex;
   flex-wrap: wrap-reverse;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  column-gap: 16px;
 }
 
 .time {
   flex: 0 0 150px; /* feste Breite für Datum */
-  margin-left:-30px;
+  /*margin-left:-30px;*/
   white-space: nowrap;
-  order:1;
+  order:3;
 }
 .job {
   flex: 1; /* nimmt den restlichen Platz ein */
   white-space: nowrap;
-  order:2;
+  order:4;
 }
+.after-time-p{order:2}
+.after-time-hr{order:1;    width: 100%;
+    margin-top: -0px;}
 .time h6, .job h5 {  margin: 0;}
 .sr-only {
   position: absolute;
