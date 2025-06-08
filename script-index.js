@@ -31,6 +31,36 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+const canvas = document.getElementById('pdf-canvas');
+const context = canvas.getContext('2d');
+
+function renderPDF(url) {
+  pdfjsLib.getDocument(url).promise.then(pdf => {
+    pdf.getPage(1).then(page => {
+      const containerWidth = canvas.clientWidth;
+      const containerHeight = canvas.clientHeight;
+
+      const unscaledViewport = page.getViewport({ scale: 1 });
+      const scale = Math.min(
+        containerWidth / unscaledViewport.width,
+        containerHeight / unscaledViewport.height
+      );
+
+      const viewport = page.getViewport({ scale });
+
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+
+      page.render(renderContext);
+    });
+  });
+}
+
 // Preload images for the hover effects
 /*  const preloadImages = [
     'bild1.jpg',
@@ -62,4 +92,5 @@ function startDownload() {
 
   function expandPDF() {
     document.getElementById('pdf-overlay').classList.toggle('fullscreen');
+    renderPDF(url);
   }
