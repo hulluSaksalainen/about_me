@@ -1,5 +1,5 @@
 // script for the toggle, only with css came problems with p-tag
-
+const url = 'zeugnisse/zeugnisse.pdf';
 
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector('.read-more-state').addEventListener('click', function () {
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const canvas = document.getElementById('pdf-canvas');
   const context = canvas.getContext('2d');
-  const url = 'zeugnisse/zeugnisse.pdf';
+
   document.querySelectorAll('.pdf-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const pageId = trigger.id; // z. B. "page-3"
