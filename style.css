@@ -17,8 +17,10 @@
 #pdf-overlay.fullscreen {
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  transform: translateX(-50%);
+  height: 90vh;
+  width: auto;
+  max-width: 90vw;
 }
 
 .pdf-hidden {
