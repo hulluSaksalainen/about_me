@@ -1,13 +1,14 @@
 // script for the toggle, only with css came problems with p-tag
 const url = 'zeugnisse/zeugnisse.pdf';
+  const canvas = document.getElementById('pdf-canvas');
+  const context = canvas.getContext('2d');
 
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector('.read-more-state').addEventListener('click', function () {
  		document.querySelectorAll('.read-more-target').forEach(el => { el.classList.toggle('show');});
 	});
 
-  const canvas = document.getElementById('pdf-canvas');
-  const context = canvas.getContext('2d');
+
 
   document.querySelectorAll('.pdf-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
