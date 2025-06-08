@@ -1,11 +1,9 @@
 // script for the toggle, only with css came problems with p-tag
-document.ready = function(){
-  alert('Document is ready');
+document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector('.read-more-state').addEventListener('click', function () {
  		document.querySelectorAll('.read-more-target').forEach(el => { el.classList.toggle('show');});
 	});
     document.querySelectorAll('.pdf-trigger').forEach(trigger => {
-      alert('PDF-Trigger found: ' + trigger.id);
     trigger.addEventListener('click', () => {
       const pageId = trigger.id; // z. B. "page-3"
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
@@ -31,7 +29,7 @@ document.ready = function(){
       });
     });
   });
-}
+});
 
 // Preload images for the hover effects
 /*  const preloadImages = [
