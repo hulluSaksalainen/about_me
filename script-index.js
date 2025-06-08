@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     trigger.addEventListener('click', () => {
       const pageId = trigger.id; // z. B. "page-3"
       canvas.setAttribute("data-page",pageId); 
-      alert(canvas.getAttribute("data-page");// Speichere die Seiten-ID im Canvas-Element
+      alert(canvas.getAttribute("data-page"));// Speichere die Seiten-ID im Canvas-Element
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
       document.getElementById('pdf-overlay').classList.remove('pdf-hidden');
 
