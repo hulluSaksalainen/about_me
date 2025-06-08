@@ -1,25 +1,26 @@
 // script for the toggle, only with css came problems with p-tag
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector('.read-more-state').addEventListener('click', function () {
  		document.querySelectorAll('.read-more-target').forEach(el => { el.classList.toggle('show');});
 	});
-    document.querySelectorAll('.pdf-trigger').forEach(trigger => {
+
+  const canvas = document.getElementById('pdf-canvas');
+  const context = canvas.getContext('2d');
+  const url = 'zeugnisse/zeugnisse.pdf';
+  document.querySelectorAll('.pdf-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const pageId = trigger.id; // z. B. "page-3"
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
-
       document.getElementById('pdf-overlay').classList.remove('pdf-hidden');
 
       pdfjsLib.getDocument(url).promise.then(pdf => {
         pdf.getPage(pageNumber).then(page => {
           const scale = 0.3;
           const viewport = page.getViewport({ scale });
-
-          const canvas = document.getElementById('pdf-canvas');
-          const context = canvas.getContext('2d');
           canvas.height = viewport.height;
           canvas.width = viewport.width;
-
           const renderContext = {
             canvasContext: context,
             viewport: viewport
@@ -31,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-const canvas = document.getElementById('pdf-canvas');
-const context = canvas.getContext('2d');
+
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
@@ -87,8 +87,6 @@ function startDownload() {
     document.getElementById('second-link').style.display = 'block';
   }, 500);
 }
-
-  const url = 'zeugnisse/zeugnisse.pdf';
 
   function expandPDF() {
     document.getElementById('pdf-overlay').classList.toggle('fullscreen');
