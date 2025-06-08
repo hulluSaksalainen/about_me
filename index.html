@@ -93,7 +93,7 @@
     <!-- Right Column --> 
     <div class="katinka-twothird">
       <!-- download-->
-      <div class="katinka-container katinka-card katinka-white katinka-margin-bottom">
+      <div class="katinka-container katinka-card katinka-white katinka-margin-bottom" id="download-container">
         <div class="katinka-container">
           <a id="downloadCV" href="#" onclick="startDownload()">       
             <h5 class="katinka-center">
@@ -101,7 +101,7 @@
               Download my CV</b>
             </h5>
           </a>
-          <a id="second-link" style="display: none;" href="zeugnisse/zeugnisse.pdf" download="zeugnisse-katinka.pdf">
+          <a id="second-link" style="display: none;" href="zeugnisse/zeugnisse.pdf" download="zeugnisse-katinka.pdf" onclick="$('#download-container').hide()">
             <h5 class="katinka-center">
               <b><i class="fa fa-file-pdf-o fa-fw katinka-margin-right katinka-text-teal"></i>
               Download also my credentials</b>

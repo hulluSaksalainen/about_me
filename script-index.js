@@ -1,10 +1,12 @@
 // script for the toggle, only with css came problems with p-tag
 document.ready = function(){
+  alert('Document is ready');
 	document.querySelector('.read-more-state').addEventListener('click', function () {
  		document.querySelectorAll('.read-more-target').forEach(el => { el.classList.toggle('show');});
 	});
     document.querySelectorAll('.pdf-trigger').forEach(trigger => {
-    trigger.addEventListener('mouseover', () => {
+      alert('PDF-Trigger found: ' + trigger.id);
+    trigger.addEventListener('click', () => {
       const pageId = trigger.id; // z. B. "page-3"
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
 
