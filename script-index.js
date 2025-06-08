@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.pdf-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const pageId = trigger.id; // z. B. "page-3"
-      canvas.setAttribute("data-page",pageId); // Speichere die Seiten-ID im Canvas-Element
+      canvas.setAttribute("data-page",pageId); 
+      alert(canvas.getAttribute("data-page");// Speichere die Seiten-ID im Canvas-Element
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
       document.getElementById('pdf-overlay').classList.remove('pdf-hidden');
 
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
+    alert("rendern: "+canvas.getAttribute("data-page"));
     pdf.getPage(canvas.getAttribute("data-page")).then(page => {
       const containerWidth = canvas.clientWidth;
       const containerHeight = canvas.clientHeight;
