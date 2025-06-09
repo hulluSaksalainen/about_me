@@ -764,3 +764,33 @@ a{color:inherit}
 .katinka-border-pale-yellow,.katinka-hover-border-pale-yellow:hover{border-color:#ffffcc!important}
 .katinka-border-pale-blue,.katinka-hover-border-pale-blue:hover{border-color:#e7ffff!important}
 
+.flag{ 
+    border: 1px solid #806469;
+    height: 18px;
+    margin:0 30px;}
+.flags{text-align:center;}
+
+#begruessung {
+  width:100%;
+  left: 50%;
+ transform: translateX(-50%);
+  position: fixed;
+      top: 30%;
+      text-align: center;
+      font-size: 200px;
+      z-index: 9999;
+	  font-family: "Parisienne"!important;
+	  background-color:#bb8992;
+	  color:white;
+	  font-weight: bold;
+    }
+
+    #introcanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      
+      
+    }
+

@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   document.querySelectorAll('.pdf-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('mouseover', () => {
       const pageId = trigger.id; // z. B. "page-3"
       canvas.setAttribute("data-page",pageId); 
-      alert(canvas.getAttribute("data-page"));// Speichere die Seiten-ID im Canvas-Element
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
       document.getElementById('pdf-overlay').classList.remove('pdf-hidden');
 
@@ -32,13 +31,24 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
+  
+document.addEventListener('click', (event) => {
+  const overlay = document.getElementById('pdf-overlay');
+
+// Wenn Overlay sichtbar ist
+  if (!overlay.classList.contains('pdf-hidden')) {
+    // Prüfen, ob der Klick außerhalb des Overlays war
+    if (!overlay.contains(event.target)) {
+      overlay.classList.add('pdf-hidden');
+      overlay.classList.remove('fullscreen');
+    }
+  }
 });
 
-
+});
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
-    alert("rendern: "+canvas.getAttribute("data-page"));
     pdf.getPage(canvas.getAttribute("data-page")).then(page => {
       const containerWidth = canvas.clientWidth;
       const containerHeight = canvas.clientHeight;
@@ -95,3 +105,85 @@ function startDownload() {
     document.getElementById('pdf-overlay').classList.toggle('fullscreen');
     renderPDF(url);
   }
+
+window.addEventListener('load', () => {
+  const begruessung = document.getElementById('begruessung');
+  const introcanvas = document.getElementById('introcanvas');
+  const ctx = introcanvas.getContext('2d');
+
+  introcanvas.width = window.innerWidth;
+  introcanvas.height = window.innerHeight;
+
+  setTimeout(() => {
+    const rect = begruessung.getBoundingClientRect();
+    const particles = [];
+
+    // Screenshot vom Text
+    html2canvas(begruessung).then(screenshot => {
+      const imgData = screenshot.getContext('2d').getImageData(0, 0, screenshot.width, screenshot.height);
+
+      for (let y = 0; y < imgData.height; y += 4) {
+        for (let x = 0; x < imgData.width; x += 4) {
+          const i = (y * imgData.width + x) * 4;
+          const r = imgData.data[i];
+          const g = imgData.data[i + 1];
+          const b = imgData.data[i + 2];
+          const a = imgData.data[i + 3];
+
+          if (a > 0) {
+            particles.push({
+              x: rect.left-150 + x,
+              y: rect.top -40+ y,
+              vx: (Math.random() - 0.5) * 3,
+              vy: (Math.random() - 0.5) * 3,
+      
+              alpha: 1,
+              color: `rgba(${r},${g},${b},`
+            });
+          }
+        }
+      }
+
+      begruessung.remove();
+  
+window.parent.postMessage('intro-finished', '*');
+
+      function animate() {
+        ctx.clearRect(0, 0, introcanvas.width, introcanvas.height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.alpha -= 0.005;
+          if (p.alpha > 0) {
+            ctx.fillStyle = p.color + p.alpha + ')';
+            ctx.fillRect(p.x, p.y, 2, 2);
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    });
+  }, 2000);
+});
+setTimeout(() => {
+  removeDiv();
+}, 5000);
+
+function removeDiv() {
+  const div = document.getElementById('introcanvas');
+  if (div) {
+    div.remove();
+  }
+
+  const mainContent = document.getElementById('mainContent');
+  mainContent.style.visibility = "visible";
+  mainContent.style.opacity = 0;
+  mainContent.style.transition = "opacity 1.5s ease-in-out";
+
+  // Timeout, um sicherzustellen, dass die Transition greift
+  setTimeout(() => {
+   mainContent.style.opacity = "1";
+  }, 500); 
+}
+

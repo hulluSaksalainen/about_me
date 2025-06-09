@@ -12,9 +12,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.5.0/css/flag-icons.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.hr-label').forEach(el => {
+    el.style.display = 'none';
+  });
+});
+
+</script>
 </head>
 <body class="katinka-crimson">
-
+<div style="height:100%; width:100%; position:fixed;vertical-align: middle;text-align: center;" 
+class="katinka-display-container katinka-crimson"><h2>Coming soon !</h2></div>
+  
 <!-- Page Container -->
 <div class="katinka-content katinka-margin-top" style="max-width:1250px;">
 
@@ -25,9 +35,9 @@
     <div class="katinka-third">
       <div class="katinka-text-grey katinka-card-4 katinka-white  katinka-margin-bottom" id="languages">
         <div class="katinka-container">
-          <h5 class="flags"> <span class="fi fi-de flag" onclick="window.open('index.html', '_self')"></span>  
+            <h5 class="flags"> <span class="fi fi-de flag" onclick="window.open('index.html', '_self')"></span>  
             <span class="fi fi-fi flag"  onclick="window.open('index-fi.html', '_self')"></span> 
-            <span class="fi fi-gb-eng flag"  onclick="window.open('index-eng.html', '_self')"></span></h5>     
+            <span class="fi fi-gb-eng flag"  onclick="window.open('index-eng.html', '_self')"></span></h5>
         </div>
       </div>
       <div class="katinka-white katinka-text-grey katinka-card-4">
