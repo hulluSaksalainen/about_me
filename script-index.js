@@ -52,16 +52,9 @@ document.addEventListener('click', (event) => {
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
-    pdf.getPage(canvas.getAttribute("data-page")).then(page => {
-      const containerWidth = canvas.clientWidth;
-      const containerHeight = canvas.clientHeight;
-
-      const unscaledViewport = page.getViewport({ scale: 1 });
-      const scale = Math.min(
-        containerWidth / unscaledViewport.width,
-        containerHeight / unscaledViewport.height
-      );
-
+    const pageNumber = parseInt(canvas.getAttribute("data-page"), 10);
+    pdf.getPage(pageNumber).then(page => {
+      const scale = 2.0; // Höhere Auflösung für Vollbild
       const viewport = page.getViewport({ scale });
 
       canvas.width = viewport.width;
@@ -71,13 +64,16 @@ function renderPDF(url) {
         canvasContext: context,
         viewport: viewport
       };
+
       if (renderTask) {
-        renderTask.cancel(); // Abbrechen des vorherigen Renderings
+        renderTask.cancel(); // Vorheriges Rendering abbrechen
       }
-      renderTask=page.render(renderContext);
+
+      renderTask = page.render(renderContext);
     });
   });
 }
+
 
 // Preload images for the hover effects
 /*  const preloadImages = [
