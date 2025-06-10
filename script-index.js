@@ -52,8 +52,7 @@ document.addEventListener('click', (event) => {
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
-    console.log("PDF geladen:", canvas);
-    console.log(canvas.getAttribute("data-page"));
+    console.log("canvas:", canvas);
     const pageNumber = canvas.getAttribute("data-page").replace('page-', '');
     if (!pageNumber) {
       console.error("Kein gültiger Seitenname gefunden.");
