@@ -52,7 +52,10 @@ document.addEventListener('click', (event) => {
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
+    console.log("PDF geladen:", canvas);
+    console.log(canvas.getAttribute("data-page"));
     const pageNumber = parseInt(canvas.getAttribute("data-page"), 10);
+    console.log(pageNumber);
     pdf.getPage(pageNumber).then(page => {
       const scale = 2.0; // Höhere Auflösung für Vollbild
       const viewport = page.getViewport({ scale });
