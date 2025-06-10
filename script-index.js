@@ -53,12 +53,12 @@ document.addEventListener('click', (event) => {
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
     console.log("canvas:", canvas);
-    const pageNumber = canvas.getAttribute("data-page").replace('page-', '');
+    const pageNumber = canvas.getAttribute("data-page").replace('page-', '').integer();
     if (!pageNumber) {
       console.error("Kein gültiger Seitenname gefunden.");
       return;
     }
-    console.log(pageNumber);
+    console.log(typeof pageNumber);
     pdf.getPage(pageNumber).then(page => {
       const scale = 2.0; // Höhere Auflösung für Vollbild
       const viewport = page.getViewport({ scale });
