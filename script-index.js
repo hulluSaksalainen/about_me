@@ -1,5 +1,5 @@
 // script for the toggle, only with css came problems with p-tag
-const url = 'zeugnisse/zeugnisse.pdf';
+let url = 'zeugnisse/zeugnisse.pdf';
 let renderTask= null;
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector('.read-more-state').addEventListener('click', function () {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const pageNumber = parseInt(pageId.replace('page-', ''), 10);
       document.getElementById('pdf-overlay').classList.remove('pdf-hidden');
 
-      pdfjsLib.getDocument(url).promise.then(pdf => {
+      pdfjsLib.getDocument(getCorrectURL()).promise.then(pdf => {
         pdf.getPage(pageNumber).then(page => {
           const scale = 0.3;
           const viewport = page.getViewport({ scale });
@@ -52,13 +52,11 @@ document.addEventListener('click', (event) => {
 
 function renderPDF(url) {
   pdfjsLib.getDocument(url).promise.then(pdf => {
-    console.log("canvas:", canvas);
     const pageNumber = parseInt(canvas.getAttribute("data-page").replace('page-', ''),10);
     if (!pageNumber) {
       console.error("Kein gültiger Seitenname gefunden.");
       return;
     }
-    console.log(typeof pageNumber);
     pdf.getPage(pageNumber).then(page => {
       const scale = 2.0; // Höhere Auflösung für Vollbild
       const viewport = page.getViewport({ scale });
@@ -96,7 +94,13 @@ function renderPDF(url) {
 
 function startDownload() {
   const link = document.createElement('a');
-  link.href = 'zeugnisse/cv.pdf';
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage.includes('-kopie')) {
+    link.href = 'zeugnisse/cv-kopie.pdf';
+  } else {
+    link.href = 'zeugnisse/cv.pdf';
+  }
+
   link.download = 'cv-katinka.pdf';
   document.body.appendChild(link);
   link.click();
@@ -110,7 +114,7 @@ function startDownload() {
 
   function expandPDF() {
     document.getElementById('pdf-overlay').classList.toggle('fullscreen');
-    renderPDF(url);
+    renderPDF(getCorrectURL());
   }
 
 window.addEventListener('load', () => {
@@ -194,3 +198,12 @@ function removeDiv() {
   }, 500); 
 }
 
+function getCorrectURL(){
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage.includes('-kopie')) {
+    return 'zeugnisse/cv-kopie.pdf';
+  } else {
+    return 'zeugnisse/cv.pdf';
+  }
+
+}
