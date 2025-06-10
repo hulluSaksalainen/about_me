@@ -1,6 +1,6 @@
 // script for the toggle, only with css came problems with p-tag
 const url = 'zeugnisse/zeugnisse.pdf';
-
+let renderTask= null;
 document.addEventListener("DOMContentLoaded", function() {
 	document.querySelector('.read-more-state').addEventListener('click', function () {
  		document.querySelectorAll('.read-more-target').forEach(el => { el.classList.toggle('show');});
@@ -26,7 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
             canvasContext: context,
             viewport: viewport
           };
-          page.render(renderContext);
+          if (renderTask) {
+            renderTask.cancel(); // Abbrechen des vorherigen Renderings
+          }
+          renderTask=page.render(renderContext);
         });
       });
     });
@@ -68,8 +71,10 @@ function renderPDF(url) {
         canvasContext: context,
         viewport: viewport
       };
-
-      page.render(renderContext);
+      if (renderTask) {
+        renderTask.cancel(); // Abbrechen des vorherigen Renderings
+      }
+      renderTask=page.render(renderContext);
     });
   });
 }
@@ -132,7 +137,7 @@ window.addEventListener('load', () => {
 
           if (a > 0) {
             particles.push({
-              x: rect.left-150 + x,
+              x: rect.left -150+ x,
               y: rect.top -40+ y,
               vx: (Math.random() - 0.5) * 3,
               vy: (Math.random() - 0.5) * 3,
