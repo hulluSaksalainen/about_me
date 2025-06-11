@@ -201,9 +201,9 @@ function removeDiv() {
 function getCorrectURL(){
   const currentPage = window.location.pathname.split('/').pop();
   if (currentPage.includes('-kopie')) {
-    return 'zeugnisse/cv-kopie.pdf';
+    return 'zeugnisse/zeugnisse-kopie.pdf';
   } else {
-    return 'zeugnisse/cv.pdf';
+    return 'zeugnisse/zeugnisse.pdf';
   }
 
 }
