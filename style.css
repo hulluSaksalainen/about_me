@@ -43,7 +43,7 @@
   white-space: nowrap;
   order:4;
 }
-.after-time-p{order:2}
+.after-time-p{order:2;width:100%;}
 .after-time-hr{order:1;    width: 100%;
     margin-top: -0px;}
 .time h6, .job h5 {  margin: 0;}
@@ -540,7 +540,7 @@ a{color:inherit}
 .katinka-padding-small{padding:4px 8px!important}
 .katinka-padding{padding:8px 16px!important}
 .katinka-padding-large{padding:12px 24px!important}
-.katinka-text-blue{padding:30px}
+.katinka-text-blue{padding:30px;text-align: center;width:100%}
 .katinka-padding-16{padding-top:16px!important;padding-bottom:16px!important}
 .katinka-padding-24{padding-top:24px!important;padding-bottom:24px!important}
 
