@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       pdfjsLib.getDocument(getCorrectURL()).promise.then(pdf => {
         pdf.getPage(pageNumber).then(page => {
-          const scale = 0.3;
+          const scale = 2;
           const viewport = page.getViewport({ scale });
           canvas.height = viewport.height;
           canvas.width = viewport.width;
